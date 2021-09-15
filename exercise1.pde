@@ -2,7 +2,7 @@ color bgColor = color(0, 0, 0);
 float circleSize = 10;
 
 void setup() {
-  size(800, 600, P2D); // P2D enables 2D GPU acceleration
+  size(800, 600, P2D);
   background(bgColor);
 }
 
