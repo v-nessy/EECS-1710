@@ -1,3 +1,4 @@
+//code taken from https://github.com/eecs17xx/eecs1710-2021f/tree/main/Week02
 color bgColor = color(0, 0, 0);
 float circleSize = 10;
 
