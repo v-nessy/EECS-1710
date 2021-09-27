@@ -1,6 +1,3 @@
-//GOAL: make an animation where it pans across a wide pitbull as the background
-//NOTE: putting variables up top is always good for form
-
 PImage pitty;
 float x;
 float y;
