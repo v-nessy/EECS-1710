@@ -1,9 +1,8 @@
 //code referenced :https://github.com/eecs17xx/eecs1710-2021f/blob/main/Week03/Background01/Background01.pde
-
 PImage pitty;
 float x;
 float y;
-float speedX = 5;
+float speedX = 1; //sets the speed along x axis
 
 void setup() {
   size(800, 600, P2D);
@@ -11,7 +10,7 @@ void setup() {
   pitty = loadImage("https://cdn.cnn.com/cnnnext/dam/assets/140619211341-pitbull-rapper-and-artist-1.jpg");
   x = width;
   y = height/2;
-  pitty.resize(1600, height);
+  pitty.resize(1800, height);
   imageMode(CENTER);
   tint(255, 126);  // Apply transparency to "pitty" w/out changing color
   
@@ -33,3 +32,4 @@ void draw() {
 
   image(pitty, x, y, pitty.width * (height / pitty.height), height);
 }
+
