@@ -1,3 +1,5 @@
+//code referenced :https://github.com/eecs17xx/eecs1710-2021f/blob/main/Week03/Background01/Background01.pde
+
 PImage pitty;
 float x;
 float y;
@@ -28,14 +30,6 @@ void draw() {
   if (x > width || x < 0) {
     speedX *= -1;
   }
-  /*
-  // you can also do it this way:
-  if (x > width) {
-    speedX *= -1;
-  } else if (x < 0) {
-    speedX *= -1;
-  }
-  */
 
   image(pitty, x, y, pitty.width * (height / pitty.height), height);
 }
