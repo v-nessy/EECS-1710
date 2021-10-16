@@ -1,21 +1,22 @@
-//OBJECTIVE: create a creature that terrorizes you 
-//...but stops after a certain time the mouse stops moving, or if mouse is in a blind spot
-
 PVector cat, target, jposition, mousePos;
 boolean Seen = false; 
-PImage jerryNow, jerrySleep, jerryRun, bkg1, bowl;
+PImage jerryNow, jerrySleep, jerryRun, bkgStars, bowl;
+import gifAnimation.*;
+Gif bkgPortal;
 
-int markPause = 0; 
-int startRest = 2000; //make it so that when mouse stops moving for 2 seconds THEN jerry stops
+int startofPause = 0; 
+int endofPause = 1000; //when mouse stops moving for 1 sec. THEN jerry stops
 
 
 void setup() { 
   size(1200, 700, P2D);
   jposition = new PVector(width/2, height/2); //jerry starts center screen
   
-  bkg1 = loadImage("bkg1.jpeg");
-  bkg1.resize(width, height);
-
+  bkgStars = loadImage("stars.jpeg");
+  bkgStars.resize(width, height);
+  
+  bkgPortal = new Gif(this, "portal.gif");
+  
   bowl = loadImage("bowl.png");
   bowl.resize(bowl.width/3, bowl.height/3);
   
@@ -32,24 +33,37 @@ void setup() {
 }
 
 void draw() {
-  background(70, 65, 130);
+  target = new PVector(mouseX, mouseY); 
+  background(0);
   
-  target = new PVector(mouseX, mouseY); //must define again under new function or it won't work
-  
-  //"Seen" only means when mouse is within 750 px AND is actively moving vv
-  Seen = (jposition.dist(target) < 750)&& (mouseX != pmouseX || mouseY != pmouseY); 
-  // ^QUESTION: how could i specify this boolean further to incorporate blind spots (ie; coordinates that creature can't reach)
-
-  if (Seen) { 
-    markPause = millis();
-    background(0);//changes background to black
+  //makes jerry run at you when your mouse is actively moving
+  if (jposition.dist(target) < 750 && (mouseX != pmouseX || mouseY != pmouseY)) {
+    //background stuff
+    tint(0, 255, 0);    
+    image(bkgPortal, width/2, height/2); //portal gif background
+    bkgPortal.play();
+    
     jerryNow = jerryRun; //jerry awakens
-    jposition = jposition.lerp(target, 0.01); } //jerry attacks
- 
-    else{
-      image(bkg1, width/2, height/2);//changes background to stars
-      jerryNow = jerrySleep; } //jerry turns back to normal state
-      
+    jposition = jposition.lerp(target, 0.01);//jerry attacks you
+    startofPause = millis(); //keep the time when mouse was last paused
+  }
+    
+ //makes jerry continue running at you when the mouse hasn't been still for more than 1 sec.
+  if ((mouseX == pmouseX || mouseY == pmouseY)&&(millis() < startofPause + endofPause)){ //once mouse stays still...
+    //background stuff again
+    tint(0, 255, 0);    
+    image(bkgPortal, width/2, height/2); //portal gif background
+    bkgPortal.play();
+    
+    jposition = jposition.lerp(target, 0.01); //jerry still chases
+    }
+
+  else if (millis() > startofPause + endofPause){ //if mouse is still for > 2 seconds
+     image(bkgStars, width/2, height/2);//changes background to original stars
+     jerryNow = jerrySleep; //jerry turns back to normal state
+     noTint();
+   }
+
  
   image(bowl, 600, 500);  
   //text stuff
@@ -57,11 +71,6 @@ void draw() {
   textAlign(CORNER);
   textSize(20);
   fill(255);
-  
-/* FOR REFERENCE: how to track if mouse has stopped moving
-  if (mouseX == pmouseX && mouseY == pmouseY){ << means "when current mouse frame = previous mouse frame"
-    jerryNow = jerrySleep; 
-  } */
   
   image(jerryNow, jposition.x, jposition.y); //jerry appears over all other images
 }
