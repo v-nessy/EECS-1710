@@ -1,3 +1,4 @@
+//citations on main tab ("Proj1_JerrysWorld.pde")
 class Jerry {
 //button's data types
 PVector mousePos, buttonPos;
