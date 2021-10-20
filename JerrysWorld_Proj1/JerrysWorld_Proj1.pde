@@ -22,6 +22,11 @@ void draw() {
   
 }
 /*CITATIONS
+general coding:
+https://processing.org/reference/
+https://github.com/eecs17xx/eecs1710-2021f
+
+photos:
 star background: https://media.istockphoto.com/vectors/pixel-art-star-sky-at-night-vector-id1208374725?k=6&m=1208374725&s=612x612&w=0&h=qBbL9vXxURqdzkCz6iT2mQwQfCJ57JSQHnpWFGf612Y=
 
 */
