@@ -81,10 +81,6 @@ void draw() {
     textAlign(CENTER);
     textSize(12);
     text("FEED", buttonPos.x, buttonPos.y);
-  
-//Seen = (jerryPos.dist(target) < 750);
-//^^I had to get rid of the "Seen" boolean entirely because there were too many exceptions
-// so instead, I just made a bunch of if statements and the delay finally worked!
 
 //CODE FOR WHEN MOUSE IS NOT IN HIDING
  if (isSeen || jerryPos.dist(target) < 100){ 
