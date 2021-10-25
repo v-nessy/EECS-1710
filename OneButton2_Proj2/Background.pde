@@ -1,3 +1,4 @@
+//CODE REFERENCED: https://www.youtube.com/watch?v=eQzHHa1-I_A
 class Parallax {
 
 PImage sky, town, street;
