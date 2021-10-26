@@ -18,8 +18,6 @@ void setup(){
 void update(){
  if(start){ 
   s = second();//start counting seconds since application started
-  //PROBLEM: the "second()" function is always fixed to whatever the current second is on the computer's clock,
-  //it doesn't actually start counting from when the program is opened
 
  if (s != lastSecond){//whenever a second has passed
     energy -= 5; //is supposed to change height of sand every second
