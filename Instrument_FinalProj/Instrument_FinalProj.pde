@@ -101,7 +101,6 @@ void setup(){
   
   
 for (int i=0; i<notebutton.length; i++){
-  //PROBLEM: the bottons keep playing all notes at once
   notebutton[i] = new NoteButton(10+i*35, 280, 30, 30);//button for C4 frequency
 }
   
