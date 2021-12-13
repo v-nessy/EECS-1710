@@ -124,6 +124,7 @@ void draw(){
   text("Select wave options using keys 1, 2, 3, 4, or 5", 990, 345);
   
   textAlign(CORNER);
+  text("Drum kit", 20, 30);
   text("Chord Presets", 10, 275);
 
 //FROM DRUM KIT EXAMPLE ------------------------------------------------
