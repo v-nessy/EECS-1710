@@ -125,7 +125,7 @@ void draw(){
   
   textAlign(CORNER);
   text("Drum kit", 20, 30);
-  text("Chord Presets", 10, 275);
+  text("Chord Presets (C major)", 10, 275);
 
 //FROM DRUM KIT EXAMPLE ------------------------------------------------
   for(int i = 0; i < dbuttons.size(); ++i)
