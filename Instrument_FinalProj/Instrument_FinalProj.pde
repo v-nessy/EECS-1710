@@ -101,7 +101,7 @@ void setup(){
   
   
 for (int i=0; i<notebutton.length; i++){
-  notebutton[i] = new NoteButton(10+i*35, 280, 30, 30);//button for C4 frequency
+  notebutton[i] = new NoteButton(10+i*35, 280, 30, 30);
 }
   
 }
